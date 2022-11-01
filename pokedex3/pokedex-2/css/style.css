@@ -1,0 +1,128 @@
+@font-face {
+
+  font-family: 'pokemon_gbregular';
+
+  src: url('../fonts/pokemon_gb-webfont.woff2') format('woff2'),
+
+       url('../fonts/pokemon_gb-webfont.woff') format('woff');
+
+  font-weight: normal;
+
+  font-style: normal;
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'pokemon_gbregular';
+}
+
+body {
+  text-align: center;
+  background-image:url(https://i.pinimg.com/originals/2a/1d/d7/2a1dd7860f40ebd2c054644a4448b86e.jpg);
+  min-height: 100vh;
+  
+}
+
+
+.pokedex {
+  width: 100%;
+  max-width: 425px;
+  visibility: hidden;
+}
+
+.pokemon__image {
+  position: absolute;
+  bottom: 55%;
+  left: 53%;
+  transform: translate(-63%, 20%);
+  height: 300px;
+  image-rendering: pixelated;
+}
+
+.pokemon__data {
+  position: absolute;
+  font-weight: 600;
+  color: #aaa;
+  top: 54.5%;
+  right: 42%;
+  font-size: clamp(8px, 5vw, 25px);
+  color: #000000;
+}
+
+.form {
+  width: 200px;
+  top: 500px;
+}
+
+.input__search {
+  width: 200px;
+  padding: 4%;
+  outline: none;
+  border: 2px solid rgb(0, 132, 255);
+  border-radius: 5px;
+  font-weight: 600;
+  color: #3a444d;
+  font-size: clamp(8px, 5vw, 1rem);
+  background-color: #aaa;
+}
+
+.buttons {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  width: 65%;
+  transform: translate(-57%, 0);
+  display: flex;
+  gap: 20px;
+  left: 55%;
+}
+
+.button {
+  width: 50%;
+  padding: 4%;
+  border: 2px solid #000;
+  border-radius: 5px;
+  font-size: clamp(8px, 5vw, 1rem);
+  font-weight: 600;
+  color: rgb(0, 0, 0);
+  background-color: rgb(201, 199, 204);
+}
+
+.button:active {
+  font-size: 0.9rem;
+}
+
+header {
+  background-color: #000;
+  display: flex;
+  justify-content: space-between;
+  height: 10vh;
+  align-items: center;
+}
+
+header>img{
+  height: 7vh;
+}
+
+.modal{
+  height: 60vh;
+  width:50vw;
+  background-color: rgb(202, 202, 202);
+  border: rgb(0, 132, 255) 3px solid;
+  display: none;
+  position: fixed;
+  left: 25%;
+  top: 23%;
+  font-size: 130%;
+}
+
+.X{
+ border: none;
+ background-color: rgba(255, 255, 255, 0);
+ height: 100px;
+ font-size: 30px;
+}
+

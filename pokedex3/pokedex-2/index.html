@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pokedex</title>
+  <link rel="icon" href="./favicons/favicon-16x16.png" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script defer src="js/script.js"></script>
+</head>
+
+<body>
+  <header>
+    <img src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png"/>
+    <form class="form">
+      <input type="search" class="input__search" placeholder="Nome/ID" required />
+    </form>
+  </header>
+  <main>
+
+    <img onclick="modal_info()" src="" alt="pokemon" class="pokemon__image" />
+
+    <h1 class="pokemon__data">
+      <span class="pokemon__number"></span>
+      <span class="pokemon__name"></span>
+    </h1>
+
+    <div class="buttons">
+      <button class="button btn-prev">Anterior</button>
+      <button class="button btn-next">Próximo</button>
+    </div>
+
+    <div class="modal">
+      <button onclick="fechar()" class="X">X</button>
+      <p>atk</p>
+      <p>def</p>
+      <p>hp</p>
+      <p>vel</p>
+      <p>atk special</p>
+      <p>def special</p>
+    </div>
+  </main>
+</body>
+
+</html>
