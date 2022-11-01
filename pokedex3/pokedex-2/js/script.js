@@ -85,7 +85,7 @@ renderPokemon(searchPokemon)
 function modal_info() {
   let modal_info = document.querySelector(".modal")
 
-  modal_info.style.display = "block"
+  modal_info.style.display = "flex"
 
   let resto = document.querySelector(".buttons")
 

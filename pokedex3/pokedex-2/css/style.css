@@ -117,6 +117,7 @@ header>img{
   left: 25%;
   top: 23%;
   font-size: 130%;
+  flex-direction: column;
 }
 
 .X{
@@ -124,5 +125,17 @@ header>img{
  background-color: rgba(255, 255, 255, 0);
  height: 100px;
  font-size: 30px;
+ margin-left: 90%;
+}
+
+.cima {
+  height: 70%;
+}
+
+.status{
+  display: grid;
+
+  
+  
 }
 
