@@ -125,11 +125,14 @@ header>img{
  background-color: rgba(255, 255, 255, 0);
  height: 100px;
  font-size: 30px;
- margin-left: 90%;
+ position: absolute;
+ top: 0;
+ right: 30px;
 }
 
 .cima {
   height: 70%;
+  position: relative;
 }
 
 .status{
@@ -139,3 +142,7 @@ header>img{
   
 }
 
+#modalImg{
+  width: 350px;
+  image-rendering: pixelated;
+}

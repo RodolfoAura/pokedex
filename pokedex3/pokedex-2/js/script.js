@@ -8,7 +8,6 @@ const input = document.querySelector('.input__search')
 const buttonPrev = document.querySelector('.btn-prev')
 const buttonNext = document.querySelector('.btn-next')
 
-// Pokemon Inicial
 let searchPokemon = 1
 
 const fetchPokemon = async pokemon => {
@@ -18,12 +17,12 @@ const fetchPokemon = async pokemon => {
 
   if (APIresponse.status == 200) {
     const data = await APIresponse.json()
-    console.log(data.id)
+
 
     return data
   } else {
     pokemonImage.style.display = 'none'
-    pokemonName.innerHTML = 'Poke Não Existe'
+    pokemonName.innerHTML = ' erro  - Pokemon inexistente'
 
     console.log(APIresponse)
   }
@@ -32,7 +31,6 @@ const fetchPokemon = async pokemon => {
 // Renderizando pokemon
 const renderPokemon = async pokemon => {
   pokemonNumber.innerHTML = ''
-  pokemonName.innerHTML = 'Carregando...'
 
   const data = await fetchPokemon(pokemon)
 
@@ -45,6 +43,27 @@ const renderPokemon = async pokemon => {
     data['sprites']['versions']['generation-v']['black-white']['animated'][
     'front_default'
     ]
+
+    document.querySelector('#modalImg').src =
+    data['sprites']['versions']['generation-v']['black-white'][
+    'front_default'
+    ]
+
+  document.querySelector('#hp').innerHTML = 'hp: ' + data['stats'][0]['base_stat']
+  document.querySelector('#atk').innerHTML = 'atk: ' + data['stats'][1]['base_stat']
+  document.querySelector('#def').innerHTML = 'def: ' + data['stats'][2]['base_stat']
+  document.querySelector('#ats').innerHTML = 'Special atk: ' + data['stats'][3]['base_stat']
+  document.querySelector('#des').innerHTML = 'Special def: ' + data['stats'][4]['base_stat']
+  document.querySelector('#vel').innerHTML = 'speed: ' + data['stats'][5]['base_stat']
+  document.querySelector('.nome').innerHTML = data['order'] +"-"+ data['name']
+
+ data['types'].forEach((e,indice) => {
+  console.log(e.type.name[0])
+ if(indice==0){
+  document.querySelector('.modal').style.border="5px solid " + bordinha(e.type.name) 
+ }
+ });
+  
 }
 // FIM
 
@@ -52,32 +71,21 @@ const renderPokemon = async pokemon => {
 form.addEventListener('submit', function (event) {
   event.preventDefault()
   renderPokemon(input.value.toLowerCase())
+  searchPokemon = parseInt(input.value)
   input.value = ''
 })
 // FIM
 
-// eventos do botão de -1
-buttonPrev.addEventListener('click', function () {
-  console.log(searchPokemon)
-
-  searchPokemon = searchPokemon - 1
-  if (searchPokemon < 1) {
-    searchPokemon = 1
+buttonPrev.addEventListener('click', () => {
+  if (searchPokemon > 1) {
+    searchPokemon -= 1;
+    renderPokemon(searchPokemon);
   }
-  renderPokemon(searchPokemon)
-})
-// FIM
-
-// eventos do botão de +1
-buttonNext.addEventListener('click', function () {
-  // console.log(searchPokemon)
-  searchPokemon = searchPokemon + 1
-  if (searchPokemon > 649) {
-    searchPokemon = 649
-  }
-  renderPokemon(searchPokemon)
-})
-// FIM
+});
+buttonNext.addEventListener('click', () => {
+  searchPokemon += 1;
+  renderPokemon(searchPokemon);
+});
 
 // Pokemon inicial
 renderPokemon(searchPokemon)
@@ -94,6 +102,8 @@ function modal_info() {
 
   img.style.display = "none"
 
+
+
 }
 
 function fechar() {
@@ -109,4 +119,20 @@ function fechar() {
   img.style.display = "block"
 
 }
+
+const bordinha = (corzinha) => {
+  switch (corzinha) {
+    case 'fire': return ("#fc0808")
+    case 'water': return ("#4aa7e0")
+    case 'poison': return ("#6b32a8")
+    case 'grass': return ("#4ab324")
+    case 'bug': return ("#a2c920")
+    case 'ground': return ("#734227")
+
+    default: 
+    return ("#fff")
+  }
+}
+
+
 
